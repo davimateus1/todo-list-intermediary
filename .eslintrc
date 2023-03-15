@@ -52,7 +52,10 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "linebreak-style": ["off", "windows"],
+    "linebreak-style": [
+      "off",
+      "windows"
+    ],
     "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-non-null-assertion": "off",
@@ -68,7 +71,15 @@
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object"
+        ],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",

@@ -13,6 +13,10 @@
     "format": "npm run prettier:fix && npm run lint:fix"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "framer-motion": "^10.3.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
