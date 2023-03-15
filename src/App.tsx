@@ -1,5 +1,5 @@
-const App = (): JSX.Element => {
-  return <h1>Hello world!</h1>;
-};
+import { AppRoutes } from './routes';
+
+const App = (): JSX.Element => <AppRoutes />;
 
 export default App;
