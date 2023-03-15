@@ -9,3 +9,5 @@ export const newUserSchema = z.object({
   }),
   role: z.string().nonempty(),
 });
+
+export type NewUser = z.infer<typeof newUserSchema>;

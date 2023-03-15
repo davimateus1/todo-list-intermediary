@@ -3,26 +3,20 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { BiUser, BiUserCircle, BiUserPin } from 'react-icons/bi';
 
-import { newUserSchema } from '../schemas';
+import { NewUser, newUserSchema } from '../schemas';
 
 import { InputForm } from '@/components/InputForm';
-
-type Form = {
-  username: string;
-  name: string;
-  role: 'admin' | 'user';
-};
 
 export const NewUserForm = (): JSX.Element => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<Form>({
+  } = useForm<NewUser>({
     resolver: zodResolver(newUserSchema),
   });
 
-  const newUser = (data: Form): void => {
+  const newUser = (data: NewUser): void => {
     console.log(data);
   };
 
