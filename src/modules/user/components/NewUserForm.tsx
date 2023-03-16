@@ -80,7 +80,7 @@ export const NewUserForm = (): JSX.Element => {
           type='submit'
           bg='brand.500'
           color='brand.100'
-          transition='all 1s'
+          transition='all 0.5s'
           _hover={{ bg: 'brand.900', color: 'brand.500' }}
           _active={{ bg: 'brand.700', color: 'brand.500' }}
           m='1rem'

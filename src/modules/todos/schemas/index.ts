@@ -1,1 +1,1 @@
-export * from './createTodoSchema';
+export * from './todoSchema';

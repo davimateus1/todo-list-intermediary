@@ -2,7 +2,7 @@ import { Button, Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { createTodoSchema, NewTodo } from '../schemas';
+import { todoSchema, TodoType } from '../schemas';
 
 import { InputForm } from '@/components';
 
@@ -11,11 +11,11 @@ export const CreateTodo = (): JSX.Element => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<NewTodo>({
-    resolver: zodResolver(createTodoSchema),
+  } = useForm<TodoType>({
+    resolver: zodResolver(todoSchema),
   });
 
-  const handleAddTodo = (data: NewTodo): void => {
+  const handleAddTodo = (data: TodoType): void => {
     console.log(data);
   };
 
@@ -43,7 +43,7 @@ export const CreateTodo = (): JSX.Element => {
         type='submit'
         bg='brand.500'
         color='brand.100'
-        transition='all 1s'
+        transition='all 0.5s'
         h='3rem'
         _hover={{ bg: 'brand.900', color: 'brand.500' }}
         _active={{ bg: 'brand.700', color: 'brand.500' }}

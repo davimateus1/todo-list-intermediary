@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const createTodoSchema = z.object({
+export const todoSchema = z.object({
   todo: z.string().nonempty({
     message: 'Todo is required',
   }),
@@ -9,4 +9,4 @@ export const createTodoSchema = z.object({
   }),
 });
 
-export type NewTodo = z.infer<typeof createTodoSchema>;
+export type TodoType = z.infer<typeof todoSchema>;
