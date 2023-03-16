@@ -1,13 +1,13 @@
 export type CreateUser = {
   name: string;
   username: string;
-  admin: string;
+  admin: boolean;
 };
 
 export type User = {
   id: string;
   name: string;
   username: string;
-  admin: string;
+  admin: boolean;
   todos: unknown[];
 };

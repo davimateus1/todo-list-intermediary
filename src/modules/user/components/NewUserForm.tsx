@@ -23,7 +23,7 @@ export const NewUserForm = (): JSX.Element => {
 
   const newUser = (data: NewUser): void => {
     postUserMutation({
-      admin: data.role,
+      admin: data.role === 'admin' ? true : false,
       name: data.name,
       username: data.username,
     });
