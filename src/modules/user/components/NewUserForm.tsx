@@ -10,6 +10,7 @@ import { NewUser, newUserSchema } from '../schemas';
 import { InputForm } from '@/components';
 
 export const NewUserForm = (): JSX.Element => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -19,8 +20,6 @@ export const NewUserForm = (): JSX.Element => {
   });
 
   const { postUserMutation, isLoading } = usePostUser();
-
-  const navigate = useNavigate();
 
   const newUser = (data: NewUser): void => {
     postUserMutation({

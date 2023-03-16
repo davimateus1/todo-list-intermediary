@@ -2,7 +2,7 @@ import { CreateUser, User } from '../types';
 
 import { api } from '@/services';
 
-export const postUser = async (user: CreateUser): Promise<CreateUser> => {
+export const postUser = async (user: CreateUser): Promise<User> => {
   const response = await api.post('/users', user);
   return response.data;
 };

@@ -5,8 +5,17 @@ import { DeleteTodo, EditTodoModal } from './Modals';
 
 export const Todo = (): JSX.Element => {
   return (
-    <Flex w='100%' bg='brand.700' m='1rem 0' p='1rem' justify='space-between' borderRadius='1rem'>
-      <Flex direction='column' w='80%'>
+    <Flex
+      w='100%'
+      bg='gray.200'
+      m='1rem 0'
+      p='1rem'
+      justify='space-between'
+      borderRadius='1rem'
+      border='2px solid'
+      borderColor='gray.300'
+    >
+      <Flex direction='column' w='80%' color='brand.900'>
         <Text fontSize='2xl' maxW='80%'>
           Descrição
         </Text>

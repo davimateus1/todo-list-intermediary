@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { BsPencil } from 'react-icons/bs';
+import { BsFillPencilFill } from 'react-icons/bs';
 
 import { todoSchema, TodoType } from '../../schemas';
 
@@ -41,7 +41,7 @@ export const EditTodoModal = (): JSX.Element => {
         ml='0.7rem'
         cursor='pointer'
         color='pastel.yellow'
-        as={BsPencil}
+        as={BsFillPencilFill}
         onClick={onOpen}
       />
 
@@ -77,23 +77,20 @@ export const EditTodoModal = (): JSX.Element => {
             <Button
               onClick={onClose}
               transition='all 0.5s'
+              color='white'
               bg='pastel.red'
-              _hover={{
-                bg: 'red.500',
-                color: 'brand.500',
-              }}
-              _active={{
-                bg: 'red.500',
-                color: 'brand.500',
-              }}
+              _hover={{}}
+              _active={{}}
             >
               Close
             </Button>
             <Button
               type='submit'
+              bg='pastel.green'
+              color='white'
               transition='all 0.5s'
-              _hover={{ bg: 'brand.900', color: 'brand.500' }}
-              _active={{ bg: 'brand.700', color: 'brand.500' }}
+              _hover={{}}
+              _active={{}}
             >
               Save Infos
             </Button>

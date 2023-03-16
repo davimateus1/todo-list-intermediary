@@ -4,13 +4,16 @@ import { useMutation, UseMutateAsyncFunction } from 'react-query';
 import { postUser } from '../api';
 import { CreateUser } from '../types';
 
+import { useUser } from '@/hooks';
+
 type PostUserType = {
   isLoading: boolean;
-  postUserMutation: UseMutateAsyncFunction<unknown, unknown, CreateUser, unknown>;
+  postUserMutation: UseMutateAsyncFunction<CreateUser, unknown, CreateUser, unknown>;
 };
 
 export const usePostUser = (): PostUserType => {
   const toast = useToast();
+  const { setUser } = useUser();
   const { mutateAsync: postUserMutation, isLoading } = useMutation({
     mutationFn: postUser,
     onError: () => {
@@ -22,7 +25,8 @@ export const usePostUser = (): PostUserType => {
         status: 'error',
       });
     },
-    onSuccess: async () => {
+    onSuccess: async (data) => {
+      setUser(data);
       toast({
         title: 'Usuário criado com sucesso!',
         duration: 3000,

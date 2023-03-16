@@ -11,20 +11,14 @@ import {
   Icon,
   Portal,
 } from '@chakra-ui/react';
-import { BsFillTrashFill } from 'react-icons/bs';
+import { IoTrashBin } from 'react-icons/io5';
 
 export const DeleteTodo = (): JSX.Element => {
   return (
     <Popover placement='right' closeOnBlur>
       <PopoverTrigger>
         <Button variant='unstyled'>
-          <Icon
-            fontSize='2xl'
-            cursor='pointer'
-            color='pastel.red'
-            as={BsFillTrashFill}
-            mt='0.45rem'
-          />
+          <Icon fontSize='2xl' cursor='pointer' color='pastel.red' as={IoTrashBin} mt='0.45rem' />
         </Button>
       </PopoverTrigger>
       <Portal>

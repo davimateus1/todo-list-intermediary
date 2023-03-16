@@ -9,9 +9,9 @@ const colors = {
     500: '#E8F1F2',
   },
   pastel: {
-    red: '#FFADAD',
-    yellow: '#FFD6A5',
-    green: '#CAFFBF',
+    red: '#ED474A',
+    yellow: '#F2C94C',
+    green: '#27AE60',
   },
   rgba: {
     black: 'rgba(0, 0, 0, 0.7)',

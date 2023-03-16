@@ -26,6 +26,8 @@ export const CreateTodo = (): JSX.Element => {
         register={register('todo')}
         error={errors.todo}
         m='0'
+        border='3px solid'
+        borderColor='gray.300'
         inputContainerStyles={{
           w: '90%',
         }}
@@ -35,18 +37,20 @@ export const CreateTodo = (): JSX.Element => {
         type='date'
         register={register('deadline')}
         error={errors.deadline}
+        border='3px solid'
+        borderColor='gray.300'
         inputContainerStyles={{
           w: '90%',
         }}
       />
       <Button
         type='submit'
-        bg='brand.500'
-        color='brand.100'
+        bg='brand.700'
+        color='brand.500'
         transition='all 0.5s'
         h='3rem'
         _hover={{ bg: 'brand.900', color: 'brand.500' }}
-        _active={{ bg: 'brand.700', color: 'brand.500' }}
+        _active={{ bg: 'brand.900', color: 'brand.500' }}
         w='70%'
       >
         Create
