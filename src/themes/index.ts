@@ -8,6 +8,11 @@ const colors = {
     600: '#1B98E0',
     500: '#E8F1F2',
   },
+  pastel: {
+    red: '#FFADAD',
+    yellow: '#FFD6A5',
+    green: '#CAFFBF',
+  },
   rgba: {
     black: 'rgba(0, 0, 0, 0.7)',
   },
@@ -31,6 +36,23 @@ const colors = {
 const fonts = {
   heading: `'Poppins', 'sans-serif'`,
   body: `'Poppins', 'sans-serif'`,
+};
+
+export const ScrollbarStyle = {
+  '::-webkit-scrollbar': {
+    width: '0.6rem',
+    height: '0.6rem',
+    marginLeft: '3rem',
+  },
+  '::-webkit-scrollbar-track': {
+    border: 'solid 1px transparent',
+    borderRadius: '2.4rem',
+  },
+  '::-webkit-scrollbar-thumb': {
+    boxShadow: 'inset 0 0 10px 10px brand.400',
+    background: 'brand.700',
+    borderRadius: '2.4rem',
+  },
 };
 
 export const theme = extendTheme({ colors, fonts });
