@@ -32,6 +32,7 @@ export const CreateTodo = (): JSX.Element => {
       />
       <InputForm
         placeholder='Deadline'
+        type='date'
         register={register('deadline')}
         error={errors.deadline}
         inputContainerStyles={{
