@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { BiUser, BiUserCircle, BiUserPin } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 
+import { usePostUser } from '../hooks';
 import { NewUser, newUserSchema } from '../schemas';
 
 import { InputForm } from '@/components';
@@ -17,10 +18,17 @@ export const NewUserForm = (): JSX.Element => {
     resolver: zodResolver(newUserSchema),
   });
 
+  const { postUserMutation, isLoading } = usePostUser();
+
   const navigate = useNavigate();
 
   const newUser = (data: NewUser): void => {
-    console.log(data);
+    postUserMutation({
+      admin: data.role,
+      name: data.name,
+      username: data.username,
+    });
+
     navigate('/todos');
   };
 
@@ -85,6 +93,7 @@ export const NewUserForm = (): JSX.Element => {
           _active={{ bg: 'brand.700', color: 'brand.500' }}
           m='1rem'
           w='70%'
+          isLoading={isLoading}
         >
           Create
         </Button>
