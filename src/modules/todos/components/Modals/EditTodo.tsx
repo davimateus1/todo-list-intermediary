@@ -36,7 +36,14 @@ export const EditTodoModal = (): JSX.Element => {
 
   return (
     <>
-      <Icon fontSize='2xl' cursor='pointer' color='pastel.yellow' as={BsPencil} onClick={onOpen} />
+      <Icon
+        fontSize='2xl'
+        ml='0.7rem'
+        cursor='pointer'
+        color='pastel.yellow'
+        as={BsPencil}
+        onClick={onOpen}
+      />
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />

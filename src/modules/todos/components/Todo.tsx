@@ -1,7 +1,7 @@
 import { Flex, Text, Icon } from '@chakra-ui/react';
-import { BsFillCheckCircleFill, BsFillTrashFill } from 'react-icons/bs';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
 
-import { EditTodoModal } from './Modals';
+import { DeleteTodo, EditTodoModal } from './Modals';
 
 export const Todo = (): JSX.Element => {
   return (
@@ -15,7 +15,7 @@ export const Todo = (): JSX.Element => {
       <Flex w='15%' justify='space-around' align='center'>
         <Icon fontSize='2xl' cursor='pointer' color='pastel.green' as={BsFillCheckCircleFill} />
         <EditTodoModal />
-        <Icon fontSize='2xl' cursor='pointer' color='pastel.red' as={BsFillTrashFill} />
+        <DeleteTodo />
       </Flex>
     </Flex>
   );
