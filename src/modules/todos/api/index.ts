@@ -24,6 +24,11 @@ export const putTodo = async ({
   return response.data;
 };
 
+export const patchTodo = async ({ todoId }: { todoId: string }): Promise<TodoType> => {
+  const response = await api.patch(`/todos/${todoId}/done`);
+  return response.data;
+};
+
 export const deleteTodo = async ({ todoId }: { todoId: string }): Promise<TodoType> => {
   const response = await api.delete(`/todos/${todoId}`);
   return response.data;

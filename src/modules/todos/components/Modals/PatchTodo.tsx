@@ -1,0 +1,24 @@
+import { Icon } from '@chakra-ui/react';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
+
+import { usePatchTodo } from '../../hooks';
+import { TodoType } from '../../types';
+
+export const PatchTodo = ({ todo }: { todo: TodoType }): JSX.Element => {
+  const { patchTodoMutation } = usePatchTodo();
+
+  const handlePatchTodo = (): void => {
+    patchTodoMutation({ todoId: todo.id });
+  };
+
+  return (
+    <Icon
+      fontSize='2xl'
+      cursor='pointer'
+      color={todo.done ? 'gray.500' : 'pastel.green'}
+      as={BsFillCheckCircleFill}
+      onClick={handlePatchTodo}
+      pointerEvents={todo.done ? 'none' : 'auto'}
+    />
+  );
+};

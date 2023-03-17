@@ -1,9 +1,8 @@
-import { Flex, Text, Icon } from '@chakra-ui/react';
-import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { Flex, Text } from '@chakra-ui/react';
 
 import { TodoType } from '../types';
 
-import { DeleteTodo, EditTodoModal } from './Modals';
+import { DeleteTodo, EditTodoModal, PatchTodo } from './Modals';
 
 type TodoProps = {
   todo: TodoType;
@@ -11,7 +10,7 @@ type TodoProps = {
 
 export const Todo = ({ todo }: TodoProps): JSX.Element => {
   const formattedDate = new Date(todo.deadline).toUTCString().split(' ').slice(0, 4).join(' ');
-
+  console.log(todo);
   return (
     <Flex
       w='100%'
@@ -24,13 +23,13 @@ export const Todo = ({ todo }: TodoProps): JSX.Element => {
       borderColor='gray.300'
     >
       <Flex direction='column' w='80%' color='brand.900'>
-        <Text fontSize='2xl' maxW='80%'>
+        <Text fontSize='2xl' maxW='80%' textDecor={todo.done ? 'line-through' : 'none'}>
           {todo.title}
         </Text>
-        <Text>{formattedDate}</Text>
+        <Text textDecor={todo.done ? 'line-through' : 'none'}>{formattedDate}</Text>
       </Flex>
       <Flex w='15%' justify='space-around' align='center'>
-        <Icon fontSize='2xl' cursor='pointer' color='pastel.green' as={BsFillCheckCircleFill} />
+        <PatchTodo todo={todo} />
         <EditTodoModal todo={todo} />
         <DeleteTodo todoId={todo.id} />
       </Flex>

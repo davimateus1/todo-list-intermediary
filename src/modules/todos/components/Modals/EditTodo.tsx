@@ -15,7 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { BsFillPencilFill } from 'react-icons/bs';
 
-import { usePutTodo } from '../../hooks/usePutTodo';
+import { usePutTodo } from '../../hooks';
 import { todoSchema, NewTodoType } from '../../schemas';
 import { TodoType } from '../../types';
 
