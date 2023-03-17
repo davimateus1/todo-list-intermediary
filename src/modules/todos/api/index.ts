@@ -13,6 +13,17 @@ export const getTodos = async (): Promise<TodoType> => {
   return response.data;
 };
 
+export const putTodo = async ({
+  todoId,
+  todo,
+}: {
+  todoId: string;
+  todo: NewTodoType;
+}): Promise<TodoType> => {
+  const response = await api.put(`/todos/${todoId}`, todo);
+  return response.data;
+};
+
 export const deleteTodo = async ({ todoId }: { todoId: string }): Promise<TodoType> => {
   const response = await api.delete(`/todos/${todoId}`);
   return response.data;

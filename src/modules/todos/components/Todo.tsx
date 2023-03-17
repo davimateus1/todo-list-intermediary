@@ -10,6 +10,8 @@ type TodoProps = {
 };
 
 export const Todo = ({ todo }: TodoProps): JSX.Element => {
+  const formattedDate = new Date(todo.deadline).toUTCString().split(' ').slice(0, 4).join(' ');
+
   return (
     <Flex
       w='100%'
@@ -25,7 +27,7 @@ export const Todo = ({ todo }: TodoProps): JSX.Element => {
         <Text fontSize='2xl' maxW='80%'>
           {todo.title}
         </Text>
-        <Text>{new Date(todo.deadline).toLocaleDateString('pt-BR')}</Text>
+        <Text>{formattedDate}</Text>
       </Flex>
       <Flex w='15%' justify='space-around' align='center'>
         <Icon fontSize='2xl' cursor='pointer' color='pastel.green' as={BsFillCheckCircleFill} />

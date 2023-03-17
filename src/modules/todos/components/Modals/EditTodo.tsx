@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { BsFillPencilFill } from 'react-icons/bs';
 
+import { usePutTodo } from '../../hooks/usePutTodo';
 import { todoSchema, NewTodoType } from '../../schemas';
 import { TodoType } from '../../types';
 
@@ -26,7 +27,8 @@ type EditTodoModalType = {
 
 export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const formattedDate = new Date(todo.deadline).toLocaleDateString('pt-BR');
+  const formattedDate = new Date(todo.deadline).toISOString().split('T')[0];
+  console.log(formattedDate);
   const {
     register,
     formState: { errors },
@@ -39,8 +41,11 @@ export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
     resolver: zodResolver(todoSchema),
   });
 
+  const { putTodoMutation, isLoading } = usePutTodo();
+
   const handleEditTodo = (data: NewTodoType): void => {
-    console.log(data);
+    putTodoMutation({ todoId: todo.id, todo: data });
+    onClose();
   };
 
   return (
@@ -100,6 +105,7 @@ export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
               transition='all 0.5s'
               _hover={{}}
               _active={{}}
+              isLoading={isLoading}
             >
               Save Infos
             </Button>
