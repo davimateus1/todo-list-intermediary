@@ -13,7 +13,15 @@ import {
 } from '@chakra-ui/react';
 import { IoTrashBin } from 'react-icons/io5';
 
-export const DeleteTodo = (): JSX.Element => {
+import { useDeleteTodo } from '../../hooks';
+
+export const DeleteTodo = ({ todoId }: { todoId: string }): JSX.Element => {
+  const { deleteTodoMutation, isLoading } = useDeleteTodo();
+
+  const handleDeleteTodo = (): void => {
+    deleteTodoMutation({ todoId });
+  };
+
   return (
     <Popover placement='right' closeOnBlur>
       <PopoverTrigger>
@@ -28,7 +36,9 @@ export const DeleteTodo = (): JSX.Element => {
           <PopoverCloseButton />
           <PopoverBody>Are you sure you want to continue with your action?</PopoverBody>
           <PopoverFooter display='flex' justifyContent='flex-end'>
-            <Button colorScheme='red'>Apply</Button>
+            <Button colorScheme='red' isLoading={isLoading} onClick={handleDeleteTodo}>
+              Apply
+            </Button>
           </PopoverFooter>
         </PopoverContent>
       </Portal>

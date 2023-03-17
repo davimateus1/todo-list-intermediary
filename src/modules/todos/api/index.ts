@@ -12,3 +12,8 @@ export const getTodos = async (): Promise<TodoType> => {
   const response = await api.get('/todos');
   return response.data;
 };
+
+export const deleteTodo = async ({ todoId }: { todoId: string }): Promise<TodoType> => {
+  const response = await api.delete(`/todos/${todoId}`);
+  return response.data;
+};

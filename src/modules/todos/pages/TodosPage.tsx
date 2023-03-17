@@ -47,7 +47,7 @@ export const TodosPage = (): JSX.Element => {
           {todos?.length ? (
             <Fragment>
               {todos?.map((todo) => (
-                <Todo key={todo} todo={todo} />
+                <Todo key={todo.id} todo={todo} />
               ))}
             </Fragment>
           ) : (

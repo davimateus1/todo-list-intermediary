@@ -30,7 +30,7 @@ export const Todo = ({ todo }: TodoProps): JSX.Element => {
       <Flex w='15%' justify='space-around' align='center'>
         <Icon fontSize='2xl' cursor='pointer' color='pastel.green' as={BsFillCheckCircleFill} />
         <EditTodoModal todo={todo} />
-        <DeleteTodo />
+        <DeleteTodo todoId={todo.id} />
       </Flex>
     </Flex>
   );
