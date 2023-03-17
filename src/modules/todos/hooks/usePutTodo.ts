@@ -30,6 +30,7 @@ export const usePutTodo = (): PutTodoType => {
         duration: 3000,
         isClosable: true,
         status: 'error',
+        variant: 'left-accent',
       });
     },
     onSuccess: () => {
@@ -38,6 +39,7 @@ export const usePutTodo = (): PutTodoType => {
         duration: 3000,
         isClosable: true,
         status: 'success',
+        variant: 'left-accent',
       });
     },
   });

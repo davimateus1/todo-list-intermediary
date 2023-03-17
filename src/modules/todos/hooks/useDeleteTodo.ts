@@ -21,14 +21,16 @@ export const useDeleteTodo = (): DeleteTodoType => {
         duration: 3000,
         isClosable: true,
         status: 'error',
+        variant: 'left-accent',
       });
     },
     onSuccess: () => {
       toast({
-        title: 'Todo deleted successfully',
+        title: 'Todo deleted successfully!',
         duration: 3000,
         isClosable: true,
         status: 'success',
+        variant: 'left-accent',
       });
     },
   });

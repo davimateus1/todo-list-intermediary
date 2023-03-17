@@ -28,6 +28,7 @@ export const usePatchTodo = (): PatchTodoType => {
         duration: 3000,
         isClosable: true,
         status: 'error',
+        variant: 'left-accent',
       });
     },
     onSuccess: () => {
@@ -36,6 +37,7 @@ export const usePatchTodo = (): PatchTodoType => {
         duration: 3000,
         isClosable: true,
         status: 'success',
+        variant: 'left-accent',
       });
     },
   });
