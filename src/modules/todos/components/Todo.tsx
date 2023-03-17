@@ -1,9 +1,15 @@
 import { Flex, Text, Icon } from '@chakra-ui/react';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
+import { TodoType } from '../types';
+
 import { DeleteTodo, EditTodoModal } from './Modals';
 
-export const Todo = (): JSX.Element => {
+type TodoProps = {
+  todo: TodoType;
+};
+
+export const Todo = ({ todo }: TodoProps): JSX.Element => {
   return (
     <Flex
       w='100%'
@@ -17,13 +23,13 @@ export const Todo = (): JSX.Element => {
     >
       <Flex direction='column' w='80%' color='brand.900'>
         <Text fontSize='2xl' maxW='80%'>
-          Descrição
+          {todo.title}
         </Text>
-        <Text>12/02/2023</Text>
+        <Text>{new Date(todo.deadline).toLocaleDateString('pt-BR')}</Text>
       </Flex>
       <Flex w='15%' justify='space-around' align='center'>
         <Icon fontSize='2xl' cursor='pointer' color='pastel.green' as={BsFillCheckCircleFill} />
-        <EditTodoModal />
+        <EditTodoModal todo={todo} />
         <DeleteTodo />
       </Flex>
     </Flex>

@@ -2,7 +2,8 @@ import { Button, Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { todoSchema, TodoType } from '../schemas';
+import { useGetTodos, usePostTodo } from '../hooks';
+import { NewTodoType, todoSchema } from '../schemas';
 
 import { InputForm } from '@/components';
 
@@ -11,20 +12,24 @@ export const CreateTodo = (): JSX.Element => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<TodoType>({
+  } = useForm<NewTodoType>({
     resolver: zodResolver(todoSchema),
   });
 
-  const handleAddTodo = (data: TodoType): void => {
-    console.log(data);
+  const { postTodoMutation, isLoading } = usePostTodo();
+  const { refetch } = useGetTodos();
+
+  const handleAddTodo = (todo: NewTodoType): void => {
+    postTodoMutation({ todo });
+    refetch();
   };
 
   return (
     <Flex as='form' onSubmit={handleSubmit(handleAddTodo)} w='100%' justify='center' h='4rem'>
       <InputForm
         placeholder='Todo'
-        register={register('todo')}
-        error={errors.todo}
+        register={register('title')}
+        error={errors.title}
         m='0'
         border='3px solid'
         borderColor='gray.300'
@@ -52,6 +57,7 @@ export const CreateTodo = (): JSX.Element => {
         _hover={{ bg: 'brand.900', color: 'brand.500' }}
         _active={{ bg: 'brand.900', color: 'brand.500' }}
         w='70%'
+        isLoading={isLoading}
       >
         Create
       </Button>

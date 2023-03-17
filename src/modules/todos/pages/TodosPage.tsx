@@ -1,9 +1,11 @@
 import { Flex, Text, Icon } from '@chakra-ui/react';
+import { Fragment } from 'react';
 import { GrUserAdmin } from 'react-icons/gr';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
 import { CreateTodo, Todo } from '../components';
+import { useGetTodos } from '../hooks';
 
 import { useUser } from '@/hooks';
 import { ScrollbarStyle } from '@/themes';
@@ -15,6 +17,10 @@ export const TodosPage = (): JSX.Element => {
   const handleNavigateBack = (): void => {
     navigate('/');
   };
+
+  console.log(user);
+
+  const { data: todos } = useGetTodos();
 
   return (
     <Flex bg='brand.800' w='100vw' h='100vh' justify='center' align='center' direction='column'>
@@ -38,13 +44,17 @@ export const TodosPage = (): JSX.Element => {
           overflowY='auto'
           sx={{ ...ScrollbarStyle }}
         >
-          <Todo />
-          <Todo />
-          <Todo />
-          <Todo />
-          <Todo />
-          <Todo />
-          <Todo />
+          {todos?.length ? (
+            <Fragment>
+              {todos?.map((todo) => (
+                <Todo key={todo} todo={todo} />
+              ))}
+            </Fragment>
+          ) : (
+            <Text fontSize='xl' fontWeight='bold' color='brand.600' align='center'>
+              No todos yet
+            </Text>
+          )}
         </Flex>
       </Flex>
     </Flex>

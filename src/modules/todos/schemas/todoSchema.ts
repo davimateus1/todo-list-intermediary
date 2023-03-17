@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const todoSchema = z.object({
-  todo: z.string().nonempty({
+  title: z.string().nonempty({
     message: 'Todo is required',
   }),
   deadline: z.string().nonempty({
@@ -9,4 +9,4 @@ export const todoSchema = z.object({
   }),
 });
 
-export type TodoType = z.infer<typeof todoSchema>;
+export type NewTodoType = z.infer<typeof todoSchema>;

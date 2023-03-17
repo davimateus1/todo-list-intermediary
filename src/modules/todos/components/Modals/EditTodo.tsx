@@ -15,22 +15,31 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { BsFillPencilFill } from 'react-icons/bs';
 
-import { todoSchema, TodoType } from '../../schemas';
+import { todoSchema, NewTodoType } from '../../schemas';
+import { TodoType } from '../../types';
 
 import { InputForm } from '@/components';
 
-export const EditTodoModal = (): JSX.Element => {
+type EditTodoModalType = {
+  todo: TodoType;
+};
+
+export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const formattedDate = new Date(todo.deadline).toLocaleDateString('pt-BR');
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<TodoType>({
-    defaultValues: {},
+  } = useForm<NewTodoType>({
+    defaultValues: {
+      title: todo.title,
+      deadline: formattedDate,
+    },
     resolver: zodResolver(todoSchema),
   });
 
-  const handleEditTodo = (data: TodoType): void => {
+  const handleEditTodo = (data: NewTodoType): void => {
     console.log(data);
   };
 
@@ -54,8 +63,8 @@ export const EditTodoModal = (): JSX.Element => {
             <Flex direction='column' justify='space-around'>
               <InputForm
                 placeholder='Todo'
-                register={register('todo')}
-                error={errors.todo}
+                register={register('title')}
+                error={errors.title}
                 inputContainerStyles={{
                   w: '90%',
                   m: '0.8rem',

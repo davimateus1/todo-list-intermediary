@@ -2,6 +2,7 @@ import { Button, Center, Flex, Icon, Image, Select, Text } from '@chakra-ui/reac
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { BiUser, BiUserCircle, BiUserPin } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 import { usePostUser } from '../hooks';
 import { NewUser, newUserSchema } from '../schemas';
@@ -9,6 +10,7 @@ import { NewUser, newUserSchema } from '../schemas';
 import { InputForm } from '@/components';
 
 export const NewUserForm = (): JSX.Element => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -25,6 +27,8 @@ export const NewUserForm = (): JSX.Element => {
       name: data.name,
       username: data.username,
     });
+
+    navigate('/todos');
   };
 
   return (
