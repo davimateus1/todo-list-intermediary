@@ -1,3 +1,5 @@
+import { TodoType } from '@/modules/todos/types';
+
 export type CreateUser = {
   name: string;
   username: string;
@@ -9,5 +11,5 @@ export type User = {
   name: string;
   username: string;
   admin: boolean;
-  todos: unknown[];
+  todos: TodoType[];
 };

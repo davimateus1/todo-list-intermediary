@@ -1,7 +1,7 @@
 import { Flex, Text, Icon } from '@chakra-ui/react';
 import { Fragment } from 'react';
-import { GrUserAdmin } from 'react-icons/gr';
 import { IoIosArrowBack } from 'react-icons/io';
+import { RiAdminLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
 import { CreateTodo, Todo } from '../components';
@@ -18,6 +18,10 @@ export const TodosPage = (): JSX.Element => {
     navigate('/');
   };
 
+  const handleNavigateAllUsers = (): void => {
+    navigate('/users');
+  };
+
   const { data: todos } = useGetTodos();
 
   return (
@@ -28,7 +32,19 @@ export const TodosPage = (): JSX.Element => {
       <Flex bg='white' w='50%' h='60%' p='3rem' borderRadius='1rem' direction='column'>
         <Flex align='flex-end' w='100%' justify='space-between' mb='1rem'>
           <Icon as={IoIosArrowBack} onClick={handleNavigateBack} fontSize='4xl' cursor='pointer' />
-          {user.admin && <Icon as={GrUserAdmin} fontSize='4xl' cursor='pointer' />}
+          {user.admin && (
+            <Icon
+              as={RiAdminLine}
+              fontSize='4xl'
+              cursor='pointer'
+              color='brand.900'
+              transition='all 0.5s'
+              _hover={{
+                color: 'brand.700',
+              }}
+              onClick={handleNavigateAllUsers}
+            />
+          )}
         </Flex>
         <CreateTodo />
         <Flex
