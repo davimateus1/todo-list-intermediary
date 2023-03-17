@@ -15,7 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { BsFillPencilFill } from 'react-icons/bs';
 
-import { usePutTodo } from '../../hooks';
+import { useGetTodos, usePutTodo } from '../../hooks';
 import { todoSchema, NewTodoType } from '../../schemas';
 import { TodoType } from '../../types';
 
@@ -42,9 +42,11 @@ export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
   });
 
   const { putTodoMutation, isLoading } = usePutTodo();
+  const { refetch } = useGetTodos();
 
-  const handleEditTodo = (data: NewTodoType): void => {
-    putTodoMutation({ todoId: todo.id, todo: data });
+  const handleEditTodo = async (data: NewTodoType): Promise<void> => {
+    await putTodoMutation({ todoId: todo.id, todo: data });
+    refetch();
     onClose();
   };
 
@@ -52,11 +54,11 @@ export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
     <>
       <Icon
         fontSize='2xl'
-        ml='0.7rem'
         cursor='pointer'
-        color='pastel.yellow'
+        color={todo.done ? 'gray.500' : 'pastel.yellow'}
         as={BsFillPencilFill}
         onClick={onOpen}
+        pointerEvents={todo.done ? 'none' : 'auto'}
       />
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>

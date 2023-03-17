@@ -19,8 +19,8 @@ export const CreateTodo = (): JSX.Element => {
   const { postTodoMutation, isLoading } = usePostTodo();
   const { refetch } = useGetTodos();
 
-  const handleAddTodo = (todo: NewTodoType): void => {
-    postTodoMutation({ todo });
+  const handleAddTodo = async (todo: NewTodoType): Promise<void> => {
+    await postTodoMutation({ todo });
     refetch();
   };
 

@@ -30,7 +30,7 @@ export const usePatchTodo = (): PatchTodoType => {
         status: 'error',
       });
     },
-    onSuccess: async () => {
+    onSuccess: () => {
       toast({
         title: 'Todo patched successfully',
         duration: 3000,

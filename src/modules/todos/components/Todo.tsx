@@ -10,7 +10,7 @@ type TodoProps = {
 
 export const Todo = ({ todo }: TodoProps): JSX.Element => {
   const formattedDate = new Date(todo.deadline).toUTCString().split(' ').slice(0, 4).join(' ');
-  console.log(todo);
+
   return (
     <Flex
       w='100%'
@@ -31,7 +31,7 @@ export const Todo = ({ todo }: TodoProps): JSX.Element => {
       <Flex w='15%' justify='space-around' align='center'>
         <PatchTodo todo={todo} />
         <EditTodoModal todo={todo} />
-        <DeleteTodo todoId={todo.id} />
+        <DeleteTodo todo={todo} />
       </Flex>
     </Flex>
   );

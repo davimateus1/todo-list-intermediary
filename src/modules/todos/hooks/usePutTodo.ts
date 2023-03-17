@@ -32,7 +32,7 @@ export const usePutTodo = (): PutTodoType => {
         status: 'error',
       });
     },
-    onSuccess: async () => {
+    onSuccess: () => {
       toast({
         title: 'Todo put successfully!',
         duration: 3000,

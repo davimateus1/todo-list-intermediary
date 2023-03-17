@@ -31,7 +31,7 @@ export const usePostTodo = (): PostTodoType => {
         status: 'error',
       });
     },
-    onSuccess: async () => {
+    onSuccess: () => {
       toast({
         title: 'Todo created successfully!',
         duration: 3000,

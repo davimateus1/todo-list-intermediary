@@ -1,14 +1,16 @@
 import { Icon } from '@chakra-ui/react';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
-import { usePatchTodo } from '../../hooks';
+import { useGetTodos, usePatchTodo } from '../../hooks';
 import { TodoType } from '../../types';
 
 export const PatchTodo = ({ todo }: { todo: TodoType }): JSX.Element => {
   const { patchTodoMutation } = usePatchTodo();
+  const { refetch } = useGetTodos();
 
-  const handlePatchTodo = (): void => {
-    patchTodoMutation({ todoId: todo.id });
+  const handlePatchTodo = async (): Promise<void> => {
+    await patchTodoMutation({ todoId: todo.id });
+    refetch();
   };
 
   return (

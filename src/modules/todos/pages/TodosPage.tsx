@@ -18,13 +18,11 @@ export const TodosPage = (): JSX.Element => {
     navigate('/');
   };
 
-  console.log(user);
-
   const { data: todos } = useGetTodos();
 
   return (
     <Flex bg='brand.800' w='100vw' h='100vh' justify='center' align='center' direction='column'>
-      <Text fontSize='5xl' fontWeight='bold'>
+      <Text fontSize='5xl' fontWeight='bold' color='brand.500'>
         Todo List
       </Text>
       <Flex bg='white' w='50%' h='60%' p='3rem' borderRadius='1rem' direction='column'>

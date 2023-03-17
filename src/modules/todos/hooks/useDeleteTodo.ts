@@ -23,7 +23,7 @@ export const useDeleteTodo = (): DeleteTodoType => {
         status: 'error',
       });
     },
-    onSuccess: async () => {
+    onSuccess: () => {
       toast({
         title: 'Todo deleted successfully',
         duration: 3000,
