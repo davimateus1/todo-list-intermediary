@@ -1,5 +1,6 @@
 import { useToast } from '@chakra-ui/react';
 import { useMutation, UseMutateAsyncFunction } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 import { postUser } from '../api';
 import { CreateUser } from '../types';
@@ -13,7 +14,9 @@ type PostUserType = {
 
 export const usePostUser = (): PostUserType => {
   const toast = useToast();
-  const { setUser } = useUser();
+  const navigate = useNavigate();
+  const { user, setUser } = useUser();
+
   const { mutateAsync: postUserMutation, isLoading } = useMutation({
     mutationFn: postUser,
     onError: () => {
@@ -27,12 +30,17 @@ export const usePostUser = (): PostUserType => {
     },
     onSuccess: async (data) => {
       setUser(data);
+
       toast({
         title: 'Usuário criado com sucesso!',
         duration: 3000,
         isClosable: true,
         status: 'success',
       });
+
+      setTimeout(() => {
+        navigate(`${user.id}/todos`);
+      }, 1000);
     },
   });
   return {

@@ -5,7 +5,7 @@ import { TodosPage } from '../pages';
 export const TodosRoutes = (): JSX.Element => {
   return (
     <Routes>
-      <Route path='/todos' element={<TodosPage />} />
+      <Route path=':userId/todos' element={<TodosPage />} />
     </Routes>
   );
 };
