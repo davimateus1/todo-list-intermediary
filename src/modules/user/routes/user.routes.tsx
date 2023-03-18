@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AllUsersPage, NewUserPage } from '../pages';
 
@@ -9,7 +9,7 @@ export const UserRoutes = (): JSX.Element => {
   return (
     <Routes>
       <Route index path='/' element={<NewUserPage />} />
-      {user.admin && <Route path='/users' element={<AllUsersPage />} />}
+      <Route path='/users' element={user.admin ? <AllUsersPage /> : <Navigate to='/todos' />} />
     </Routes>
   );
 };

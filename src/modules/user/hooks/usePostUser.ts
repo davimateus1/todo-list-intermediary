@@ -32,6 +32,7 @@ export const usePostUser = (): PostUserType => {
     onSuccess: async (data) => {
       setUser(data);
       localStorage.setItem('@user', JSON.stringify(data));
+
       toast({
         title: 'User created successfully!',
         duration: 3000,

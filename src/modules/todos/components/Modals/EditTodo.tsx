@@ -28,7 +28,7 @@ type EditTodoModalType = {
 export const EditTodoModal = ({ todo }: EditTodoModalType): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const formattedDate = new Date(todo.deadline).toISOString().split('T')[0];
-  console.log(formattedDate);
+
   const {
     register,
     formState: { errors },

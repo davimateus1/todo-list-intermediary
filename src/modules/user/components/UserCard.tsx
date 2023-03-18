@@ -7,7 +7,6 @@ import { User } from '../types';
 import { UserInfos } from './UserInfos';
 
 export const UserCard = ({ user }: { user: User }): JSX.Element => {
-  console.log(user);
   return (
     <GridItem
       w='95%'
