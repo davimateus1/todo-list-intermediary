@@ -15,7 +15,7 @@ export const UserProvider = ({ children }: UserProviderType): JSX.Element => {
 
   useEffect(() => {
     const storageUser = localStorage.getItem('@user');
-    setUser(JSON.parse(storageUser ?? ''));
+    setUser(JSON.parse(storageUser ?? '{}'));
   }, []);
 
   return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
