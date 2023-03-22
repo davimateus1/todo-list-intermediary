@@ -1,4 +1,4 @@
-import { Flex, Text, Icon } from '@chakra-ui/react';
+import { Flex, Text, Icon, Spinner } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { RiAdminLine } from 'react-icons/ri';
@@ -13,16 +13,16 @@ import { ScrollbarStyle } from '@/themes';
 export const TodosPage = (): JSX.Element => {
   const { user } = useUser();
   const navigate = useNavigate();
+  const { data: todos, isLoading } = useGetTodos();
 
   const handleNavigateBack = (): void => {
+    localStorage.removeItem('@user');
     navigate('/');
   };
 
   const handleNavigateAllUsers = (): void => {
     navigate('/users');
   };
-
-  const { data: todos } = useGetTodos();
 
   return (
     <Flex bg='brand.800' w='100vw' h='100vh' justify='center' align='center' direction='column'>
@@ -58,16 +58,30 @@ export const TodosPage = (): JSX.Element => {
           overflowY='auto'
           sx={{ ...ScrollbarStyle }}
         >
-          {todos?.length ? (
-            <Fragment>
-              {todos?.map((todo) => (
-                <Todo key={todo.id} todo={todo} />
-              ))}
-            </Fragment>
+          {isLoading ? (
+            <Flex justify='center'>
+              <Spinner
+                thickness='4px'
+                speed='0.65s'
+                emptyColor='gray.200'
+                color='brand.700'
+                size='xl'
+              />
+            </Flex>
           ) : (
-            <Text fontSize='xl' fontWeight='bold' color='brand.600' align='center'>
-              No todos yet
-            </Text>
+            <Fragment>
+              {todos?.length ? (
+                <>
+                  {todos.map((todo) => (
+                    <Todo key={todo.id} todo={todo} />
+                  ))}
+                </>
+              ) : (
+                <Text fontSize='xl' fontWeight='bold' color='brand.600' align='center'>
+                  No todos yet
+                </Text>
+              )}
+            </Fragment>
           )}
         </Flex>
       </Flex>
