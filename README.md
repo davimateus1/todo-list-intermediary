@@ -1,81 +1,110 @@
-<h1 align='center'>Vite + React + TypeScript + Eslint + Prettier Template ⚡</h1>
+<h1 align="center">
+ <img alt="move.it" title="move.it" src="https://user-images.githubusercontent.com/66326378/168703581-a31109f3-6b3f-4153-8279-f02000a34cf9.png" width="25%"  />
+  <br>
+  Semana da Computação UNICAP - 2023
+</h1>
 
-Create a new project with Vite, React JS, TypeScript, Eslint, Prettier in just 1 second and you don't need to setup anything.
+<br>
 
-#### **Vercel Deploy: https://vite-react-ts-eslint-prettier.vercel.app**
+### ✨ Resumo
 
-![image](https://user-images.githubusercontent.com/70432453/170648662-2ff424b9-74e9-4754-a04d-512fe1496a3b.png)
+<p align="left">
+Falamos sobre conceitos importantes para desenvolvimento de aplicações mais avaçadas e escaláveis no React (Vite, Eslint, Prettier, Estruturação de um projeto, TypeScript, Chakra UI, React Icons, React Router, Permissões nas rotas, React Hook Form, ZOD, Axios, React Query, Context API, Dados persistentes no LocalStorage e Custom Hooks) mostrando como funciona cada um deles, dando exemplos práticos e concluindo o minicurso com um projeto bônus para os alunos. deixo a seguir, todos os assuntos que foram abordados de maneira mais detalhada:
 
-## **Some Features 📋**
+<ul>
+  <li>Criação e estruturação de um projeto e boas práticas de mercado (Estrutura de pastas, Eslint, Prettier)</li>
+  <li>TypeScript
+    <ul>
+      <li>Tipos básicos</li>
+      <li>Funções</li>
+      <li>Tipos de bibliotecas</li>
+      <li>Partial e Tipos de requisições</li>
+    </ul>
+  </li>
+  <li>Por que usar React com TypeScript</li>
+  <li>Biblioteca de componentes/estilos/icones (Chakra UI + React Icons)</li>
+  <li>Roteamento (React Router)</li>
+  <li>Manuseio de formulários (React Hook Form + ZOD)</li>
+  <li>Requisições (Axios + React Query)</li>
+  <li>Atualização de dados em tempo real</li>
+  <ul>
+    <li>Tratamento de prováveis erros da API</li>
+    <li>Context API</li>
+  </ul>
+  <li>Manuseio de dados com o LocalStorage do navegador</li>
+  <li>Custom hooks</li>
+</ul>
+</p>
+ 
+<hr>
+<br>
 
-Alias Import
+<h1 align="center">
+ <img alt="move.it" title="move.it" src="https://user-images.githubusercontent.com/66326378/227409930-ecaaef72-90f4-49de-9cd0-b8ad7d7204b3.png" width="25%"  />
 
-![image](https://user-images.githubusercontent.com/70432453/170644457-ede03cca-44e9-4543-94d3-412c9d317063.png)
+  <br>
 
-Hook Warning
+  Projeto - Todo List Intermediary
+</h1>
 
-![image](https://user-images.githubusercontent.com/70432453/170638708-23a20ffd-156e-494a-84be-b1e1cfdb5c93.png)
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>
+</p>
 
-Prettier Warning
+<br>
 
-![image](https://user-images.githubusercontent.com/70432453/170639043-24423ed1-73cc-4730-b270-2acea1ae0c74.png)
+<h2>🖥️ Tela de criação de usuário: </h2>
+<p align="center">
+  <img alt="Happy" src="https://user-images.githubusercontent.com/66326378/227408123-77a260ed-67ce-4104-bf9e-e2e68f23d359.png" width="100%">
+</p>
+<h2>🖥️ Tela de todos: </h2>
+<p align="center">
+  <img alt="Happy" src="https://user-images.githubusercontent.com/66326378/227408115-07d8d4e2-ccc0-478d-b6d6-cf41f0558451.png" width="100%">
+<h2>🖥️ Tela de listagem de usuários (ADMIN): </h2>
+<p align="center">
+  <img alt="Happy" src="https://user-images.githubusercontent.com/66326378/227408246-cdf08072-e7f5-49b4-9707-924d8befe339.png" width="100%">
+</p>
 
-Etc...
+<br>
 
-## **Using 📦**
+## ✨ Tecnologias
 
-1. Clone Template
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-```
-git clone https://github.com/igdev116/vite-react-ts-eslint-prettier.git
-```
+- [ReactJS](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [Eslint](https://eslint.org)
+- [Prettier](https://prettier.io)
+- [Chakra UI](https://chakra-ui.com)
+- [React Icons](https://react-icons.github.io/react-icons/search)
+- [React Hook Form](https://react-hook-form.com)
+- [ZOD](https://zod.dev)
+- [React Router](https://reactrouter.com)
+- [Axios](https://axios-http.com/docs/intro)
+- [React Query](https://tanstack.com/query/v3/)
 
-2. Install Packages
+<br>
 
-```
-yarn install
-```
+## 💻 Projeto
 
-3. Start Project
+<p align="left">
+Esse projeto foi desenvolvido com o intuito de abordar conceitos intermediários de desenvolvimento com React e repassar para os alunos de uma maneira leve, como uma todo-list, só que um pouco mais complexa que de costume, contendo consumo de uma API real, tratamento de erros, bibliotecas mais avançadas, permissão nas rotas, dados persistentes utilizando recursos do navegador e diversos outros tópicos que são interessantes para o mercado de trabalho.
+</p>
 
-```
-yarn dev
-```
+<br>
 
-4. If you using git, delete the existing folder .git after cloning (open `git bash` or other terminal)
+## 🚀 Como executar
 
-```
-rm -rf .git
-```
+- Clone o repositório
+- Use npm ou yarn
+- Instale as dependências com `yarn` no terminal
+- Inicie o projeto com `yarn dev` e após isso abra o `localhost:3000` no seu navegador
+- Fique a vontade para explorar e testar as funcionalidades do projeto
 
-## **Options ✍️**
+---
 
-1. Check lint
-
-```
-yarn lint
-```
-
-2. Fix lint
-
-```
-yarn lint:fix
-```
-
-3. Check prettier
-
-```
-yarn prettier
-```
-
-4. Fix prettier
-
-```
-yarn prettier:fix
-```
-
-5. Fix lint and prettier
-
-```
-yarn format
-```
+<h4 align="center">
+ Projeto realizado pelo ministrante Davi Mateus do Minicurso React Além do Básico com TypeScript: Construindo Aplicações Mais Complexas com Bibliotecas Externas, na Semana da Computação UNICAP - 2023
+</h4>
