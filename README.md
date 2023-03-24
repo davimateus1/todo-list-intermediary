@@ -50,7 +50,8 @@ Falamos sobre conceitos importantes para desenvolvimento de aplicações mais av
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-executar">Como executar</a>
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-api-utilizada">API utilizada</a>
 </p>
 
 <br>
@@ -102,6 +103,14 @@ Esse projeto foi desenvolvido com o intuito de abordar conceitos intermediários
 - Instale as dependências com `yarn` no terminal
 - Inicie o projeto com `yarn dev` e após isso abra o `localhost:3000` no seu navegador
 - Fique a vontade para explorar e testar as funcionalidades do projeto
+
+<br>
+
+## 🚀 API utilizada
+
+- [Todo API](https://github.com/davimateus1/todo-api-challenge)
+
+<br>
 
 ---
 
